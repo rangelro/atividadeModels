@@ -1,0 +1,11 @@
+<h1>{{ produto.nome }}</h1>
+<p>Código: {{ produto.codigo }}</p>
+<p>Preço: {{ produto.preco }}</p>
+<p>Quantidade: {{ produto.quantidade }}</p>
+<p>Data de Criação: {{ produto.dataCriacao }}</p>
+<p>Fornecedor: {{ produto.fornecedor.nome }}</p>
+<p>Categorias: 
+    {% for categoria in produto.categorias.all %}
+        {{ categoria.nome }}{% if not forloop.last %}, {% endif %}
+    {% endfor %}
+</p>

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Produto
+from .models import *
 # Register your models here.
 
 class ProdutoAdmin(admin.ModelAdmin):
@@ -8,4 +8,14 @@ class ProdutoAdmin(admin.ModelAdmin):
     list_filter = ['dataCriacao']
     ordering = ['-dataCriacao']
 
+class CategoriaAdmin(admin.ModelAdmin):
+    list_display = ['nome','descricao']
+    search_fields = ['nome']
+
+class FornecedorAdmin(admin.ModelAdmin):
+    list_display = ['nome','cnpj']
+    search_fields = ['nome']
+
 admin.site.register(Produto, ProdutoAdmin)
+admin.site.register(Categoria,CategoriaAdmin)
+admin.site.register(Fornecedor, FornecedorAdmin)
