@@ -6,4 +6,5 @@ urlpatterns = [
     path('produto/<int:id>/', views.detalhes_Produto,name='detalhes_Produto'),
     path('categorias/', views.lista_Categorias,name='lista_categorias'),
     path('fornecedores/', views.lista_Fornecedores,name='lista_Fornecedores'),
+    path('adicionar_produto/', views.produtoForm,name='adicionar_produto'),
 ]

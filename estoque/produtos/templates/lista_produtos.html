@@ -5,3 +5,5 @@
         <li><a href="{% url 'detalhes_Produto' produto.id %}">{{produto.nome}}</a></li>
     {% endfor %}
 </ul>
+
+<button><a href="{% url 'adicionar_produto' %}">Novo Produto</a></button>

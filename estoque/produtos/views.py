@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 
 from .models import Produto, Categoria, Fornecedor
+from .forms import CriarProduto
 
 def lista_Produtos(request):
     produtos = Produto.objects.all()
@@ -17,3 +18,13 @@ def lista_Categorias(request):
 def lista_Fornecedores(request):
     fornecedores = Fornecedor.objects.all()
     return render(request, 'fornecedores.html', {'fornecedores': fornecedores})
+
+def produtoForm(request):
+    if request.method == 'POST':
+        form = CriarProduto(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_Produtos')
+    else:
+        form = CriarProduto()
+    return render(request, 'adicionar_produto.html', {'form': form})

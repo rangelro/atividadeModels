@@ -27,6 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Date input format
+USE_L10N = False
+
+DATE_FORMAT = "d/m/Y"
 
 # Application definition
 
